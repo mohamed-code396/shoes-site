@@ -1,0 +1,154 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    background-color: black;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+body::after {
+    content: '';
+    background-color: red;
+    width: 100%;
+    height: 100%;
+    clip-path: circle(40% at right 70%);
+    position: absolute;
+    z-index: -1;
+}
+
+.torsso {
+    width: 85%;
+    height: 85%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+header {
+    margin: auto;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+}
+
+.logo {
+    font-size: 32px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    color: white;
+}
+
+header ul {
+    display: flex;
+    gap: 25px;
+}
+
+header ul li a {
+    color: white;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+header ul li a:hover {
+    color: red;
+    text-shadow: 1px 0px 0px black;
+}
+
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    width: 90%;
+    margin: auto;
+    padding-bottom: 30px;
+}
+
+.content .text {
+    width: 45%;
+    color: white;
+}
+
+.content .text h2 {
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.content .text p {
+    letter-spacing: 1px;
+    line-height: 25px;
+    font-weight: 400;
+    color: #e0e0e0;
+}
+
+.content .image {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+}
+
+.content .image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+
+@media (min-width: 950px) and (max-width: 1150px) {
+    .content .image img {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 950px) {
+    .torsso {
+        height: 90%;
+        overflow-y: auto;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .content {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .content .image, .content .text {
+        width: 100%;
+    }
+
+    .content .text h2 {
+        font-size: 28px;
+    }
+
+    body::after {
+        clip-path: circle(50% at bottom);
+    }
+}
